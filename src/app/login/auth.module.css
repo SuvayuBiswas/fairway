@@ -1,0 +1,95 @@
+/* src/app/login/auth.module.css */
+.authPage {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+  background: var(--cream);
+  background-image:
+    radial-gradient(ellipse 60% 50% at 80% 20%, rgba(107,143,107,0.1) 0%, transparent 60%),
+    radial-gradient(ellipse 40% 40% at 20% 80%, rgba(139,111,71,0.07) 0%, transparent 60%);
+}
+.authCard {
+  background: var(--white);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  padding: 48px 40px;
+  width: 100%;
+  max-width: 420px;
+  box-shadow: var(--shadow-lg);
+  animation: fadeUp 0.5s ease;
+}
+.authLogo {
+  display: block;
+  font-family: var(--font-serif);
+  font-size: 1.4rem;
+  font-weight: 700;
+  color: var(--dark);
+  text-decoration: none;
+  margin-bottom: 28px;
+}
+.authTitle {
+  font-size: 1.8rem;
+  margin-bottom: 6px;
+}
+.authSub {
+  font-size: 0.9rem;
+  color: var(--muted);
+  margin-bottom: 28px;
+}
+.form { margin-top: 8px; }
+.errorBanner {
+  background: rgba(192,57,43,0.08);
+  border: 1px solid rgba(192,57,43,0.2);
+  color: var(--error);
+  padding: 12px 16px;
+  border-radius: 8px;
+  font-size: 0.875rem;
+  margin-bottom: 16px;
+}
+.switchLink {
+  text-align: center;
+  font-size: 0.875rem;
+  color: var(--muted);
+  margin-top: 20px;
+}
+.switchLink a {
+  color: var(--forest);
+  text-decoration: none;
+  font-weight: 500;
+}
+.switchLink a:hover { text-decoration: underline; }
+.planRadio {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+.planOption {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 14px 16px;
+  border: 1.5px solid var(--border);
+  border-radius: 10px;
+  cursor: pointer;
+  font-size: 0.875rem;
+  transition: border-color 0.2s;
+}
+.planOption:has(input:checked) {
+  border-color: var(--forest);
+  background: rgba(44,74,46,0.04);
+}
+.planOption input { accent-color: var(--forest); }
+.saveTag {
+  background: rgba(107,143,107,0.15);
+  color: var(--sage);
+  font-size: 0.7rem;
+  padding: 2px 8px;
+  border-radius: 100px;
+  font-weight: 500;
+  margin-left: auto;
+}
+@media (max-width: 480px) {
+  .authCard { padding: 32px 24px; }
+}

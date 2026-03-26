@@ -1,0 +1,199 @@
+/* src/components/UserDashboard.module.css */
+.shell  { display: flex; height: 100vh; overflow: hidden; background: var(--cream); }
+
+.sidebar {
+  width: 240px;
+  background: var(--white);
+  border-right: 1px solid var(--border);
+  display: flex;
+  flex-direction: column;
+  padding: 28px 16px;
+  flex-shrink: 0;
+}
+.logo   { font-family: var(--font-serif); font-size: 1.3rem; font-weight: 700; margin-bottom: 36px; padding: 0 8px; }
+.nav    { display: flex; flex-direction: column; gap: 2px; flex: 1; }
+.navItem {
+  display: flex; align-items: center; gap: 10px;
+  padding: 10px 12px; border-radius: 8px;
+  color: var(--muted); text-decoration: none;
+  font-size: 0.875rem; font-weight: 500; cursor: pointer;
+  transition: all 0.15s; background: none; border: none; width: 100%; text-align: left;
+}
+.navItem:hover  { background: rgba(26,26,24,0.05); color: var(--dark); }
+.active         { background: rgba(44,74,46,0.1) !important; color: var(--forest) !important; }
+.navIcon        { font-size: 1rem; flex-shrink: 0; }
+.navLabel       { font-size: 0.875rem; }
+.signout        { background: none; border: none; font-family: var(--font-sans); font-size: 0.8rem; color: var(--muted); cursor: pointer; padding: 8px 12px; text-align: left; transition: color 0.2s; margin-top: 8px; }
+.signout:hover  { color: var(--dark); }
+
+.main           { flex: 1; overflow-y: auto; display: flex; flex-direction: column; }
+.topbar         { display: flex; align-items: center; justify-content: space-between; padding: 20px 36px; border-bottom: 1px solid var(--border); background: var(--white); position: sticky; top: 0; z-index: 10; }
+.greeting       { font-size: 1.3rem; font-family: var(--font-serif); font-weight: 600; }
+.subLine        { font-size: 0.82rem; color: var(--muted); margin-top: 2px; }
+.avatar         { width: 40px; height: 40px; background: var(--forest); color: var(--white); border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: 700; font-size: 0.9rem; }
+
+.content        { padding: 32px 36px; flex: 1; }
+.tabContent     { max-width: 800px; animation: fadeUp 0.4s ease; }
+.tabTitle       { font-family: var(--font-serif); font-size: 1.7rem; font-weight: 600; margin-bottom: 6px; }
+.tabSub         { font-size: 0.875rem; color: var(--muted); margin-bottom: 28px; }
+.sectionH3      { font-size: 1rem; font-weight: 600; margin: 28px 0 14px; }
+
+.warningBanner  { background: rgba(196,149,42,0.1); border: 1px solid rgba(196,149,42,0.2); color: #7a5c1a; padding: 12px 16px; border-radius: 8px; font-size: 0.875rem; margin-bottom: 20px; }
+
+/* Score entry */
+.scoreEntryCard { background: var(--white); border: 1px solid var(--border); border-radius: var(--radius); padding: 20px; margin-bottom: 24px; }
+.scoreEntryRow  { display: flex; gap: 12px; align-items: flex-end; flex-wrap: wrap; }
+.scoreEntryRow .form-group { flex: 1; min-width: 140px; }
+
+.emptyState     { background: var(--white); border: 1px dashed var(--border); border-radius: var(--radius); padding: 40px; text-align: center; }
+.emptyState p   { color: var(--muted); }
+
+.scoreList      { display: flex; flex-direction: column; gap: 10px; }
+.scoreItem      { display: grid; grid-template-columns: 36px 120px 1fr 48px 32px; align-items: center; gap: 14px; padding: 14px 20px; background: var(--white); border: 1px solid var(--border); border-radius: var(--radius); transition: box-shadow 0.2s; }
+.scoreItem:hover{ box-shadow: var(--shadow); }
+.newest         { border-color: var(--sage); background: rgba(107,143,107,0.04) !important; }
+.scoreRank      { font-family: var(--font-mono); font-size: 0.75rem; color: var(--muted); }
+.scoreDate      { font-size: 0.82rem; color: var(--muted); }
+.scoreBarWrap   { background: rgba(26,26,24,0.06); border-radius: 100px; height: 6px; overflow: hidden; }
+.scoreBarFill   { height: 100%; background: var(--sage); border-radius: 100px; transition: width 0.8s ease; }
+.newest .scoreBarFill { background: var(--forest); }
+.scoreValue     { font-family: var(--font-serif); font-size: 1.3rem; font-weight: 700; text-align: right; }
+.scoreDel       { background: none; border: none; cursor: pointer; color: var(--muted); font-size: 1.1rem; opacity: 0.4; transition: opacity 0.2s, color 0.2s; }
+.scoreDel:hover { opacity: 1; color: var(--error); }
+
+/* Draw */
+.drawCard       { background: var(--forest); border-radius: var(--radius-lg); padding: 28px; color: var(--white); margin-bottom: 24px; display: flex; justify-content: space-between; align-items: flex-end; flex-wrap: wrap; gap: 16px; }
+.drawLabel      { font-size: 0.8rem; opacity: 0.6; margin-bottom: 14px; letter-spacing: 0.05em; }
+.drawBalls      { display: flex; gap: 10px; flex-wrap: wrap; }
+.ball           { width: 52px; height: 52px; border-radius: 50%; background: rgba(255,255,255,0.12); border: 2px solid rgba(255,255,255,0.2); display: flex; align-items: center; justify-content: center; font-family: var(--font-mono); font-size: 0.95rem; font-weight: 500; color: var(--white); }
+.drawMeta       { display: flex; flex-direction: column; gap: 6px; align-items: flex-end; }
+.drawMonth      { font-family: var(--font-mono); font-size: 0.75rem; opacity: 0.6; }
+.drawHistory    { display: flex; flex-direction: column; gap: 10px; }
+.drawHistoryRow { display: flex; align-items: center; gap: 14px; padding: 14px 16px; background: var(--white); border: 1px solid var(--border); border-radius: var(--radius); flex-wrap: wrap; }
+.drawHistMonth  { font-size: 0.85rem; min-width: 80px; }
+.drawHistBalls  { display: flex; gap: 6px; }
+.ballSm         { width: 32px; height: 32px; border-radius: 50%; border: 1.5px solid var(--border); display: flex; align-items: center; justify-content: center; font-size: 0.72rem; font-family: var(--font-mono); color: var(--muted); }
+.ballMatch      { border-color: var(--sage); background: rgba(107,143,107,0.1); color: var(--forest); font-weight: 600; }
+.resultNone     { font-size: 0.8rem; color: var(--muted); margin-left: auto; }
+.resultThree    { font-size: 0.8rem; color: var(--sage); font-weight: 600; margin-left: auto; }
+.resultFour     { font-size: 0.8rem; color: var(--gold); font-weight: 600; margin-left: auto; }
+.resultJackpot  { font-size: 0.8rem; color: var(--forest); font-weight: 700; margin-left: auto; }
+
+/* Charity */
+.charityCard    { display: flex; align-items: center; gap: 16px; padding: 20px; background: var(--white); border: 1px solid var(--border); border-radius: var(--radius); margin-bottom: 4px; }
+.charityCard h3 { margin-bottom: 2px; }
+.donationList   { display: flex; flex-direction: column; gap: 0; border: 1px solid var(--border); border-radius: var(--radius); overflow: hidden; background: var(--white); }
+.donationRow    { display: grid; grid-template-columns: 1fr 2fr auto; padding: 12px 16px; font-size: 0.875rem; border-bottom: 1px solid var(--border-light); }
+.donationRow:last-child { border-bottom: none; }
+
+/* Winnings */
+.winSummary     { display: grid; grid-template-columns: repeat(3, 1fr); gap: 14px; margin-bottom: 24px; }
+.winCard        { background: var(--white); border: 1px solid var(--border); border-radius: var(--radius); padding: 20px; text-align: center; }
+.winNum         { font-family: var(--font-serif); font-size: 1.8rem; font-weight: 700; margin-bottom: 4px; }
+.winLabel       { font-size: 0.75rem; color: var(--muted); text-transform: uppercase; letter-spacing: 0.06em; }
+.payoutList     { display: flex; flex-direction: column; gap: 10px; }
+.payoutRow      { display: flex; justify-content: space-between; align-items: center; padding: 16px 20px; background: var(--white); border: 1px solid var(--border); border-radius: var(--radius); flex-wrap: wrap; gap: 12px; }
+.payoutRow p    { margin-top: 3px; }
+
+/* Subscription */
+.subCard        { background: var(--white); border: 1px solid var(--border); border-radius: var(--radius-lg); padding: 28px; }
+.subPlan        { font-family: var(--font-mono); font-size: 0.75rem; text-transform: uppercase; letter-spacing: 0.1em; color: var(--muted); margin-bottom: 10px; }
+
+/* Responsive */
+@media (max-width: 900px) {
+  .sidebar  { width: 200px; }
+  .content  { padding: 24px 20px; }
+  .topbar   { padding: 16px 20px; }
+}
+@media (max-width: 600px) {
+  .shell    { flex-direction: column; }
+  .sidebar  { width: 100%; height: auto; flex-direction: row; padding: 10px 12px; overflow-x: auto; }
+  .logo     { margin-bottom: 0; font-size: 1.1rem; margin-right: 16px; flex-shrink: 0; }
+  .nav      { flex-direction: row; }
+  .navLabel { display: none; }
+  .signout  { display: none; }
+  .scoreItem{ grid-template-columns: 30px 1fr 40px 24px; }
+  .scoreDate{ display: none; }
+  .scoreBarWrap { display: none; }
+  .winSummary { grid-template-columns: 1fr; }
+  .content  { padding: 16px; }
+}
+
+/* ── Plan Cards (Subscription Tab) ────────────────────────── */
+.plansGrid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 20px;
+  margin-top: 16px;
+}
+@media (max-width: 640px) {
+  .plansGrid { grid-template-columns: 1fr; }
+}
+.planCard {
+  background: var(--surface);
+  border: 2px solid var(--border);
+  border-radius: 16px;
+  padding: 28px 24px;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+.planCardFeatured {
+  border-color: var(--forest);
+  background: linear-gradient(135deg, rgba(26,107,58,0.06) 0%, transparent 100%);
+}
+.planBadge {
+  position: absolute;
+  top: -12px;
+  left: 50%;
+  transform: translateX(-50%);
+  background: var(--forest);
+  color: #fff;
+  font-size: 0.72rem;
+  font-weight: 700;
+  padding: 4px 14px;
+  border-radius: 20px;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  white-space: nowrap;
+}
+.planName {
+  font-size: 1rem;
+  font-weight: 700;
+  color: var(--text);
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+}
+.planPrice {
+  font-family: var(--font-serif);
+  font-size: 2.2rem;
+  font-weight: 700;
+  color: var(--forest);
+  line-height: 1;
+}
+.planPrice span {
+  font-size: 1rem;
+  font-weight: 400;
+  color: var(--muted);
+  font-family: var(--font-sans);
+}
+.planSaving {
+  font-size: 0.8rem;
+  color: var(--forest);
+  font-weight: 600;
+  margin: -4px 0 0;
+}
+.planFeatures {
+  list-style: none;
+  padding: 0;
+  margin: 4px 0 8px;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  flex: 1;
+}
+.planFeatures li {
+  font-size: 0.875rem;
+  color: var(--text-secondary);
+}
